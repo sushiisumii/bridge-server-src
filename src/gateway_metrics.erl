@@ -33,9 +33,9 @@ init([]) ->
   ets:new(meter_table_public, [public, named_table, {write_concurrency,true}]),
   
   BridgeId = gateway_util:md5_hex(Hostname ++ integer_to_list(TCPPort) ++ integer_to_list(WebPort)),
-  report_add_server(HostnameBin, TCPPort, WebPort, SSLPort, HTTPSPort),
+  %report_add_server(HostnameBin, TCPPort, WebPort, SSLPort, HTTPSPort),
   
-  erlang:send_after(10000, self(), send_server_usage),
+  %erlang:send_after(10000, self(), send_server_usage),
   
   {ok, #state{hostname = HostnameBin, web_port = WebPort, tcp_port = TCPPort, redirector_url = Redirector, bridgeid = BridgeId, server_usage = 0}}.
 
