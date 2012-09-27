@@ -4,7 +4,7 @@ cross-language services to share data and realtime updates among your
 servers and your clients
 
 ## Runtime Requirements
-The Bridge Server requires Erlang (>= R14B) and rebar (included in this
+The Bridge Server requires Erlang (>= R15) and rebar (included in this
 directory).
 
 ## Installation
