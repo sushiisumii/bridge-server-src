@@ -28,5 +28,5 @@ rm -rf "bc_rel-${VER}"
 mv bc "bc_rel-${VER}"
 #echo $VER > CURRENT_VERSION
 #ln -sf "bc_rel-${VER}" "bc-latest"
-ln -sfn "~/.bridge" "bc_rel-${VER}"
+cp -r "bc_rel-${VER}" ~/.bridge
 echo "OK"
