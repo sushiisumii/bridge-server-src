@@ -105,10 +105,12 @@ handle_command(#join_channel{name = {invalid, Name}}, State) ->
   gateway_error:invalid_channel_name(Name),
   State;
 
-handle_command(#join_channel{name = Name, handler = Handler, callback = Callback, writeable = Writeable}, State) ->
+handle_command(#join_channel{name = Name, handler = Handler, callback = Callback, writeable = Writeable}, 
+               State = #state{sessionid = SessionId,
+                              rabbit_handler = RabbitHandler}) ->
   ClientRef = make_hookchannel_reference(Handler),
   gen_server:cast(State#state.rabbit_handler, {join_channel, Name, gateway_reference:get_destination_id(ClientRef), Writeable}),
-  % invoke_cast(ClientRef, ["join_workerpool", <<"channel:", Name/binary>>], SessionId, State),
+  invoke_cast(ClientRef, ["join_workerpool", <<"channel:", Name/binary>>], SessionId, State),
   Args = append_callback_to_args([Name, Handler], Callback),
   invoke_rpc(ClientRef, Args, State),
   State;
