@@ -22,10 +22,11 @@ cd "${VER}"
 mv bc.boot start.boot
 cp bc.rel "bc-${VER}.rel"
 cd ../../bin
-mv bc start
+mv bc server
 cd ../../
 rm -rf "bc_rel-${VER}"
 mv bc "bc_rel-${VER}"
 #echo $VER > CURRENT_VERSION
 #ln -sf "bc_rel-${VER}" "bc-latest"
+ln -sfn "~/.bridge" "bc_rel-${VER}"
 echo "OK"

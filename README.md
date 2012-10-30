@@ -18,6 +18,21 @@ directory of this project:
 
     ./rebar compile 
 
+To package Bridge Server into a release version (and to make it easier to run in the future) run:
+**Note**: Be sure that your project directory is named 'gateway' for this script to work correctly (at least until this is correctly changed).
+    
+    ./scripts/rel.sh
+
+To run bridge in the background, run:
+
+    ~/.bridge/bin/server start
+
+To stop bridge, run:
+
+    ~/.bridge/bin/server stop
+
+
+
 Finally to run the Bridge Server in development mode, start RabbitMQ and
 then run:
 
