@@ -39,6 +39,14 @@ then run:
     ./scripts/run-verbose.sh
 
 
+## Adding Api Keys to Bridge:                                                                                                           
+First make sure the control server is running for bridge (default is running).                                                          
+Then make this api call to the control server to add whatever api key (you
+want) to add.
+
+    curl -i http://YOURBRIDGEHOST:7002/ctl/addKey -d '{"priv_key":"YOUR_PRIVATE_KEY", "pub_key":"YOUR_PUBLIC_KEY", "new_limit": 10000000}'
+        
+
 ## Documentation and Support
 * API Reference: http://www.getbridge.com/docs/api/js/
 * Getting Started: http://www.getbridge.com/docs/gettingstarted/js/
